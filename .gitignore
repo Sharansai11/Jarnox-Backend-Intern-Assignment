@@ -1,0 +1,138 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+*.egg-info/
+*.egg
+build/
+dist/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+installdeps/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+hypothesis/
+.pytest_cache/
+
+# Pyenv
+.python-version
+
+# virtualenv
+venv/
+ENV/
+env/
+.venv/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+*.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mypy
+.mypy_cache/
+dmypy.json
+dmypy.sock
+
+# Pyre type checker
+.pyre/
+
+# Profiling data
+profiler_output/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Sublime Text
+.sublime-project
+.sublime-workspace
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Docker
+# ignore Docker build output and local compose overrides
+.dockerignore
+docker-compose.override.yml
+docker-compose.override.yaml
+docker-compose.*.local.yml
+
+# Node / frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# build output
+dist/
+build/
+
+# frontend cache
+.parcel-cache/
+
+# Environment files
+.env
+.env.*.local
+env.local
+
+# Sensitive files - if you track credentials in the repo accidentally
+secrets.json
+credentials.json
+
+# Sample data or large data files
+backend/data/*.csv
+backend/data/*.sqlite
+
+# Python compiled C extensions
+*.pyd
+
+# Local python virtual environment created by some tools
+/.venv
+
+# Ignore pycache and python bytecode anywhere
+**/__pycache__/
+**/*.py[cod]
+
+# End of .gitignore

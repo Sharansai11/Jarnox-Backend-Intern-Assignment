@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #0f172a; color: #e2e8f0; }
+.container { padding: 16px; max-width: 1100px; margin: 0 auto; }
+h1 { margin: 8px 0 16px; }
+.controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+label { display: flex; gap: 6px; align-items: center; }
+input, select, button { padding: 6px 8px; border-radius: 6px; border: 1px solid #334155; background: #0b1220; color: #e2e8f0; }
+button { cursor: pointer; background: #2563eb; border-color: #1d4ed8; }
+button#stop { background: #ef4444; border-color: #dc2626; }
+.charts { background: #0b1220; padding: 12px; border: 1px solid #334155; border-radius: 8px; }
+.backtest { margin-top: 16px; background: #0b1220; padding: 12px; border: 1px solid #334155; border-radius: 8px; }
+pre { background: #020617; padding: 12px; border-radius: 8px; overflow: auto; }
+
