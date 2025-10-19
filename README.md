@@ -48,7 +48,6 @@ Notes
 
 API Endpoints (Selected)
 
-- `GET /api/health` — health check
 - `GET /api/historical?symbol=BTC-USD&interval=1m&lookback=7d` — historical candles JSON
 - `POST /api/backtest` — run backtest; body:
 
@@ -76,10 +75,23 @@ Run Tests/Examples
 
 - Start the server and open the dashboard. Choose symbol (e.g., `BTC-USD` or `AAPL`), pick strategy, and click Start Live to see the stream and signals. Use the Backtest form to run historical backtests.
 
+### Working of Live Data (Source: Binance)
+![Binance Live Data](images/binance_live.png)
+
+### Working of Live Data (Source: Sample)
+![Sample Live Data](images/sample_live.png)
+
+### Backtest - SMA Crossover (Binance)
+![SMA Backtest](images/sma_backtest.png)
+
+### Backtest - RSI Momentum (Binance)
+![RSI Backtest](images/rsi_backtest.png)
+
+
 Development Notes (200–300 words)
 
-This prototype aims to balance clarity with useful trading-system features. The backend exposes both historical and live-style data paths. Historical candles are pulled from `yfinance` when available, otherwise a bundled sample CSV is used. The live data path is a mock websocket that emits synthetic candles derived from the last historical close, which keeps the demo predictable and offline-capable. Two simple strategies, SMA crossover and RSI momentum, are implemented using shared indicator utilities. The backtesting engine applies each strategy over the candle series, simulating orders, position state, and PnL with an equity curve. A small SQLite database persists trades and equity snapshots for later inspection.
-
-On the frontend, a static HTML/JS dashboard uses Chart.js to plot price and overlays buy/sell markers in real time, while a performance panel shows PnL metrics. The design favors minimal dependencies and easy local setup on Windows. Key challenges included organizing real-time streams with strategy evaluation per incoming candle and ensuring indicators are efficiently recomputed. The solution updates indicators incrementally and encapsulates strategy rules for reuse by both backtesting and the live mock stream. Future enhancements could add real exchange paper trading (e.g., Alpaca or Binance Testnet), risk controls like dynamic position sizing and stop losses, WebSocket-based broadcasting to multiple clients, and deployment via Docker on a free cloud service.
+My development approach was structured and modular, beginning with a FastAPI backend to handle APIs and WebSockets, followed by integrating data providers (sample mock and Binance API), strategy logic, and backtesting features. I prioritized core functionality—historical data retrieval and strategy signals—before adding live streaming and a user-friendly frontend. Testing with sample data ensured stability, while Binance integration brought real-world applicability. The stateless design keeps it lightweight and scalable.
+Technologies used include Python (FastAPI, Pandas, Websockets, Requests) for the backend, enabling efficient data processing and streaming. The frontend leverages HTML, JavaScript (with Chart.js for dynamic charts), and CSS, creating an interactive dashboard. Binance API provides live crypto data, complemented by synthetic generation in data_utils.py for flexible testing.
+I successfully implemented timezone handling with UTC standardization, ensuring seamless DataFrame filtering, and established a reliable WebSocket connection to Binance for real-time updates. The modular structure—separating providers, strategies, and backtesting—allows easy addition of new features, like more strategies or data sources. The dashboard effectively visualizes live prices with signals and portfolio performance, including PnL and equity curves, enhancing user experience. This prototype demonstrates a solid foundation for algo trading simulation, showcasing the power of integrating real-time data with strategic analysis, and it’s primed for future enhancements in a live trading environment.
 
 
